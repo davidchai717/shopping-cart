@@ -1,8 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-
 const items = require('../models/items');
-const Cart = require('../models/Cart');
 const carts = [];
 
 const cartController = {};
@@ -11,7 +7,7 @@ cartController.addCart = (req, res) => {
   // access from the store
   // create a new Cart entry
   const newCart = {};
-  const cartID = carts.push(newCart);
+  const cartID = carts.push(newCart) - 1;
   // push and return the new length as the ID
   return res.json(cartID);
 };
@@ -30,6 +26,7 @@ cartController.verifyCartID = (req, res, next) => {
 
 cartController.verifyItemID = (req, res, next) => {
   // Check if user input is a valid ID
+  console.log(req.body);
   if (req.body.itemID in items) {
     res.locals.itemID = req.body.itemID;
     return next();
@@ -59,7 +56,7 @@ cartController.getTotal = (req, res) => {
     if (volume_discounts.length) {
       const { number, price } = volume_discounts[0];
       const remainder = itemCount % number;
-      total += remainder * unit_price + (itemCount - remainder) * price;
+      total += remainder * unit_price + (itemCount - remainder) / number * price;
     } else {
       total += itemCount * unit_price;
     }
