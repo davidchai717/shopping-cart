@@ -1,8 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const items = fs.readFileSync(path.resolve(__dirname, '../models/items.json'));
+const items = require('../models/items');
 
-console.log(JSON.parse(items));
+console.log(items);
+const carts = [];
 
 module.exports = {
   addCart: {
