@@ -26,7 +26,6 @@ cartController.verifyCartID = (req, res, next) => {
 
 cartController.verifyItemID = (req, res, next) => {
   // Check if user input is a valid ID
-  console.log(req.body);
   if (req.body.itemID in items) {
     res.locals.itemID = req.body.itemID;
     return next();
