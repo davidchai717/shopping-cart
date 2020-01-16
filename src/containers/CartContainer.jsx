@@ -1,8 +1,10 @@
 import React from 'react';
+import Cart from '../components/Cart';
 
 const CartContainer = () => {
   return (<div>
-    Shopping Cart goes here
+    <h2>Cart ID: 4</h2>
+    <Cart />
   </div>)
 }
 
