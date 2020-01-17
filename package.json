@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --open & nodemon server",
+    "dev": "NODE_ENV=development webpack-dev-server --open --config ./client/webpack.config.js & nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

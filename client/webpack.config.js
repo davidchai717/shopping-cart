@@ -9,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
+  context: path.resolve(__dirname),
   module: {
     rules: [
       {
@@ -33,10 +34,10 @@ module.exports = {
   devServer: {
     port: 8080,
     publicPath: '/dist/',
-    contentBase: './public',
+    contentBase: './client/public',
     historyApiFallback: true,
     proxy: {
-      '/cart': 'http://localhost:3000',
+      '/api': 'http://localhost:3000',
     },
   },
 };

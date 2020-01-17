@@ -4,9 +4,14 @@ body {
   background-color: whitesmoke;
 }
 
+@media screen and (min-width: 600px) {
+  #main-screen {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
 #main-screen {
-  display: flex;
-  justify-content: space-around;
   margin-top: 40px;
 }
 
@@ -20,6 +25,7 @@ body {
 
 .item {
   padding: 5px 25px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;

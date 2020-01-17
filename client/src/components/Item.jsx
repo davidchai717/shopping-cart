@@ -3,15 +3,16 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
-const Item = ({ title, price, discount }) => {
+const Item = ({ data: { description, unit_price, volume_discounts }, cartID }) => {
+  console.log(description);
   return (<Paper elevation={3} className="item">
    <div className="item-description">
-      <p><strong>Apple</strong> - $4</p>
+    <p><strong>{description}</strong> - ${unit_price}</p>
    </div>
-    <ButtonGroup className="item-actions">
+   { cartID ? <ButtonGroup className="item-actions">
       <Button>+</Button>
       <Button>-</Button>
-    </ButtonGroup>
+    </ButtonGroup> : null }
   </Paper>)
 }
 

@@ -8,6 +8,7 @@ const { getItems } = itemController;
 
 app.use(express.json());
 
+// Public-facing APIs
 app.get('/api/items', getItems);
 
 app.post('/api/cart', addCart);
