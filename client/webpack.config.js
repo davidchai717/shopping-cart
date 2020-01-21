@@ -1,7 +1,5 @@
 const path = require('path');
 
-require('dotenv');
-
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: './src/index.js',
@@ -35,9 +33,8 @@ module.exports = {
     port: 8080,
     publicPath: '/dist/',
     contentBase: './client/public',
-    historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': 'http://localhost:3000/',
     },
   },
 };

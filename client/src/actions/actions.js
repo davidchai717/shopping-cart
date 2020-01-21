@@ -1,2 +1,0 @@
-export const UPDATE_QUANTITY = 'UPDATE_QUANTITY';
-export const UPDATE_ITEMS = 'UPDATE_ITEMS';
