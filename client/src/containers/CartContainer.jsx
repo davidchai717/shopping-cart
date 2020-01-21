@@ -1,41 +1,31 @@
 import React from 'react';
 import Cart from '../components/Cart';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
 import { useStoreContext } from '../store';
+import { startCart } from '../actions/actions';
 
 const CartContainer = () => {
-  const { cartID, setCartID, total } = useStoreContext();
-  const startCart = update => {
-    fetch('/api/cart', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(res => res.json())
-      .then(id => {
-        update(id);
-      })
-      .catch(err => {
-        throw err;
-      });
-  };
+  const { cartID, setCartID, total, setTotal } = useStoreContext();
   return (
-    <div>
+    <Paper elevation={3} className="cart">
       {cartID ? (
-        <Cart id={cartID} total={total} />
+        <Cart id={cartID} setID={setCartID} total={total} setTotal={setTotal} />
       ) : (
+        // "New cart" button if cart hasn't been initalized
         <Button
           variant="contained"
           color="primary"
           onClick={() => {
-            startCart(setCartID);
+            startCart(setCartID).catch(err => {
+              throw err;
+            });
           }}
         >
           Start a Cart
         </Button>
       )}
-    </div>
+    </Paper>
   );
 };
 
