@@ -1,5 +1,5 @@
 const items = require('../models/items');
-const carts = [];
+const carts = require('../models/carts');
 
 const cartController = {};
 
@@ -8,7 +8,10 @@ cartController.addCart = (req, res) => {
   const newCart = {};
   const cartID = carts.push(newCart);
   // push and return the new length as the ID
-  return res.json(cartID);
+  return res.json({
+    status: 'New cart added successfully',
+    payload: cartID,
+  });
 };
 
 cartController.verifyCartID = (req, res, next) => {

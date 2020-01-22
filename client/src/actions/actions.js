@@ -22,8 +22,8 @@ const fetcher = (url, method, body) => {
 export const startCart = update => {
   return fetcher('/api/cart', 'POST', {
     'Content-Type': 'application/json',
-  }).then(id => {
-    update(id);
+  }).then(({ payload }) => {
+    update(payload);
   });
 };
 
