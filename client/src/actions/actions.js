@@ -1,3 +1,5 @@
+import ls from 'local-storage';
+
 // Reducing the boilerplate for the async actions
 const fetcher = (url, method, body) => {
   const obj = {
@@ -24,6 +26,7 @@ export const startCart = update => {
     'Content-Type': 'application/json',
   }).then(({ payload }) => {
     update(payload);
+    ls('shopping-cart-id', payload);
   });
 };
 

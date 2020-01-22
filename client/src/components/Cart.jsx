@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import ls from 'local-storage';
 
 const Cart = ({ setID, total, setTotal }) => {
   return (
@@ -12,6 +13,7 @@ const Cart = ({ setID, total, setTotal }) => {
         onClick={() => {
           setID(null);
           setTotal(0);
+          ls.remove('shopping-cart-id');
         }}
       >
         Clear Cart
