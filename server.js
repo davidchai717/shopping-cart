@@ -30,8 +30,8 @@ app.get('/api/cart/:cartID', verifyCartID, getTotal);
 
 app.patch('/api/cart/:cartID', verifyCartID, verifyItemID, addItem);
 
-const server = app.listen(3000, () => {
-  console.log('Server established on port 3000');
+const server = app.listen(8081, () => {
+  console.log('Server established on port 8081');
 });
 
 module.exports = { app, server };

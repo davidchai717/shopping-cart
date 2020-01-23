@@ -34,7 +34,7 @@ module.exports = {
     publicPath: '/dist/',
     contentBase: './client/public',
     proxy: {
-      '/api': 'http://localhost:3000/',
+      '/api': 'http://localhost:8081/',
     },
   },
 };
