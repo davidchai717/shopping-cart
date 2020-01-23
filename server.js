@@ -16,10 +16,10 @@ const { getItems } = itemController;
 app.use(express.json());
 
 // Serving static frontend files in production mode
-if (process.env.NODE_ENV === 'production') {
-  app.use('/', express.static(path.resolve(__dirname, './client/public/')));
-  app.use('/dist', express.static(path.resolve(__dirname, './client/dist/')));
-}
+// if (process.env.NODE_ENV === 'production') {
+app.use('/', express.static(path.resolve(__dirname, './client/public/')));
+app.use('/dist', express.static(path.resolve(__dirname, './client/dist/')));
+// }
 
 // Public-facing APIs
 app.get('/api/items', getItems);
