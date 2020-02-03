@@ -1,4 +1,5 @@
 node_modules
+./client/dist
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
